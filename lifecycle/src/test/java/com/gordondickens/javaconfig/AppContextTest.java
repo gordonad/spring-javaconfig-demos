@@ -1,7 +1,8 @@
 package com.gordondickens.javaconfig;
 
+import com.gordondickens.javaconfig.beans.Account;
 import com.gordondickens.javaconfig.beans.Customer;
-import com.gordondickens.javaconfig.service.CustomerService;
+import com.gordondickens.javaconfig.beans.Product;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.notNullValue;
-import static org.hamcrest.Matchers.startsWith;
 
 /**
  * @author Gordon Dickens (dickeg01)
@@ -20,18 +20,18 @@ import static org.hamcrest.Matchers.startsWith;
 public class AppContextTest {
     
     @Autowired
-    CustomerService customerService;
+    Customer customer;
+    
+    @Autowired
+    Account account;
+    
+    @Autowired
+    Product product;
     
     @Test
     public void verifyBeans() {
-        assertThat(customerService, notNullValue());
-    }
-    
-    @Test
-    public void verifyFindById() {
-        Customer customer = customerService.findById(1);
         assertThat(customer, notNullValue());
-        assertThat(customer.getCustomerName(), startsWith("ABC"));
+        assertThat(account, notNullValue());
+        assertThat(product, notNullValue());
     }
-    
 }

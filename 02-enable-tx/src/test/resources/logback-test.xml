@@ -10,22 +10,45 @@
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%.-1level|%-20.20logger{0}--> %msg%n%n</pattern>
+            <pattern>%.-1level|%-25.25logger{0}*Sp*--> %msg%n%n</pattern>
         </encoder>
     </appender>
 
-    <appender name="appconsole" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="app" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>***[%msg]***%n</pattern>
+            <pattern>**App**[%msg]%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="tx" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>TX|%.-1level|%-25.25logger{0}--> %msg%n%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="spring" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>SP|%.-1level|%-25.25logger{0}--> %msg%n%n</pattern>
         </encoder>
     </appender>
 
     <logger name="com.gordondickens" level="debug" additivity="false">
-        <appender-ref ref="appconsole"/>
+        <appender-ref ref="app"/>
     </logger>
 
-    <logger name="org.springframework.beans" level="trace"/>
-    <logger name="org.springframework.context.annotation" level="trace"/>
+    <logger name="org.springframework.beans" level="trace" additivity="false">
+        <appender-ref ref="spring"/>
+    </logger>
+    <logger name="org.springframework.context.annotation" level="trace" additivity="false">
+        <appender-ref ref="spring"/>
+    </logger>
+
+    <logger name="org.springframework.transaction.annotation" level="trace" additivity="false">
+        <appender-ref ref="tx"/>
+    </logger>
+    <logger name="org.springframework.transaction.config" level="trace" additivity="false">
+        <appender-ref ref="tx"/>
+    </logger>
+
 
     <root level="warn">
         <appender-ref ref="console"/>
