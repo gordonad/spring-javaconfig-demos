@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * @author Gordon Dickens (dickeg01)
+ * @author Gordon Dickens
  */
 @Transactional
 public class CustomerServiceImpl implements CustomerService {

@@ -4,7 +4,7 @@ import com.gordondickens.javaconfig.beans.Customer;
 import org.springframework.dao.DataAccessException;
 
 /**
- * @author Gordon Dickens (dickeg01)
+ * @author Gordon Dickens
  */
 public interface CustomerRepository {
 

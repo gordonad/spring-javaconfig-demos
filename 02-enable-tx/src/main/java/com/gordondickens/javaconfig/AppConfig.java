@@ -28,15 +28,22 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 
 /**
- * @author Gordon Dickens (dickeg01)
- * @see org.springframework.context.annotation.ClassPathBeanDefinitionScanner
+ * @author Gordon Dickens
+ * @see org.springframework.beans.CachedIntrospectionResults
+ * @see org.springframework.beans.factory.annotation.InjectionMetadata
+ * @see org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor
  * @see org.springframework.beans.factory.support.DefaultListableBeanFactory
  * @see org.springframework.beans.factory.support.BeanDefinitionReader
+ * @see org.springframework.context.annotation.ClassPathBeanDefinitionScanner
+ * @see org.springframework.context.annotation.CommonAnnotationBeanPostProcessor
+ * @see org.springframework.context.annotation.ConfigurationClassParser
  * @see org.springframework.context.annotation.ConfigurationClassPostProcessor
- * @see org.springframework.beans.factory.annotation.InjectionMetadata
- * @see org.springframework.beans.CachedIntrospectionResults
- * @see org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor
- * @see
+ * @see org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader
+ * @see org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration
+ * @see org.springframework.transaction.annotation.AbstractTransactionManagementConfiguration
+ * @see org.springframework.transaction.annotation.SpringTransactionAnnotationParser
+ * @see org.springframework.beans.factory.annotation.QualifierAnnotationAutowireCandidateResolver
+ * @see 
  */
 @Configuration
 @ComponentScan

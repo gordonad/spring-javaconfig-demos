@@ -1,7 +1,7 @@
 package com.gordondickens.javaconfig.beans;
 
 /**
- * @author Gordon Dickens (dickeg01)
+ * @author Gordon Dickens
  */
 public class Product extends AbstractBean {
     private String productName;

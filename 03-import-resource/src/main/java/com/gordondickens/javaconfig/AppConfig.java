@@ -9,13 +9,14 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.core.env.Environment;
 
 import javax.annotation.PostConstruct;
 
 /**
  * 
- * @author Gordon Dickens (dickeg01)
+ * @author Gordon Dickens
  * @see org.springframework.context.annotation.ClassPathBeanDefinitionScanner
  * @see org.springframework.beans.factory.support.DefaultListableBeanFactory
  * @see org.springframework.beans.factory.support.BeanDefinitionReader
@@ -27,6 +28,7 @@ import javax.annotation.PostConstruct;
  */
 @Configuration
 @ComponentScan
+@ImportResource("classpath:/Common-Context.xml")
 public class AppConfig {
     private static final Logger logger = LoggerFactory.getLogger(AppConfig.class);
     

@@ -3,7 +3,7 @@ package com.gordondickens.javaconfig.beans;
 import org.springframework.stereotype.Component;
 
 /**
- * @author Gordon Dickens (dickeg01)
+ * @author Gordon Dickens
  */
 @Component
 public class Customer extends AbstractBean {

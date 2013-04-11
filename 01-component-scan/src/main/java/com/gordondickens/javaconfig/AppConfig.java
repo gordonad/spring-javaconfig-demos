@@ -15,7 +15,7 @@ import javax.annotation.PostConstruct;
 
 /**
  * 
- * @author Gordon Dickens (dickeg01)
+ * @author Gordon Dickens
  * @see org.springframework.context.annotation.ClassPathBeanDefinitionScanner
  * @see org.springframework.beans.factory.support.DefaultListableBeanFactory
  * @see org.springframework.beans.factory.support.BeanDefinitionReader

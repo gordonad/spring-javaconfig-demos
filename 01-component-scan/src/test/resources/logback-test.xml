@@ -10,24 +10,221 @@
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%.-1level|%-20.20logger{0}--> %msg%n%n</pattern>
+            <pattern>%.-1level|%-35.35logger{0}*Sp*--> %msg%n%n</pattern>
         </encoder>
     </appender>
 
-    <appender name="appconsole" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- ********************************************************************************************** -->
+    <!-- ********************************************************************************************** -->
+    <appender name="app" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>***[%msg]***%n</pattern>
+            <pattern>**App**[%msg]%n</pattern>
         </encoder>
     </appender>
-
-    <logger name="com.gordondickens" level="debug" additivity="false">
-        <appender-ref ref="appconsole"/>
+    <logger name="com.gordondickens"
+            level="debug" additivity="false">
+        <appender-ref ref="app"/>
     </logger>
 
-    <logger name="org.springframework.beans" level="trace"/>
-    <logger name="org.springframework.context.annotation" level="trace"/>
+    <!-- ********************************************************************************************** -->
+    <!-- ********************************************************************************************** -->
+    <appender name="javaconfig" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>JC|%.-1level|%-40.40logger{0} -->%n\t%msg%n%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- ********************************************************************************************** -->
+    <!-- @Component, @Controller, @Repository, @Service, @EndPoint, @Named, @Scope, @ManagedBean -->
+    <!-- ********************************************************************************************** -->
+    <logger name="org.springframework.context.annotation.ClassPathBeanDefinitionScanner"
+            level="trace" additivity="false">
+        <appender-ref ref="javaconfig"/>
+    </logger>
+
+    <!-- ********************************************************************************************** -->
+    <!-- @Inject, @Autowired, @Value (also via QualifierAnnotationAutowireCandidateResolver) -->
+    <!-- ********************************************************************************************** -->
+    <logger name="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"
+            level="trace" additivity="false">
+        <appender-ref ref="javaconfig"/>
+    </logger>
+
+    <!-- ********************************************************************************************** -->
+    <!-- @Async, @Asynchronous -->
+    <!-- ********************************************************************************************** -->
+    <logger name="org.springframework.scheduling.annotation.AsyncAnnotationBeanPostProcessor"
+            level="trace" additivity="false">
+        <appender-ref ref="javaconfig"/>
+    </logger>
+
+    <!-- ********************************************************************************************** -->
+    <!-- @TransactionAttribute -->
+    <!-- ********************************************************************************************** -->
+    <logger name="org.springframework.transaction.annotation.Ejb3TransactionAnnotationParser"
+            level="trace" additivity="false">
+        <appender-ref ref="javaconfig"/>
+    </logger>
+
+    <!-- ********************************************************************************************** -->
+    <!-- @Transactional -->
+    <!-- *** Does NOT seem to log any detail *** -->
+    <!-- ********************************************************************************************** -->
+    <!--<logger name="org.springframework.transaction.annotation.SpringTransactionAnnotationParser"-->
+            <!--level="trace" additivity="false">-->
+        <!--<appender-ref ref="javaconfig"/>-->
+    <!--</logger>-->
+
+    <!-- ********************************************************************************************** -->
+    <!-- @WebServiceRef, @EJB, @Resource, @PostConstruct, @PreDestroy -->
+    <!-- ********************************************************************************************** -->
+    <logger name="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"
+            level="trace" additivity="false">
+        <appender-ref ref="javaconfig"/>
+    </logger>
+
+    <!-- ********************************************************************************************** -->
+    <!-- @Bean, @Role, @Lazy, @DependsOn, @Scope -->
+    <!-- ********************************************************************************************** -->
+    <logger name="org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader"
+            level="trace" additivity="false">
+        <appender-ref ref="javaconfig"/>
+    </logger>
+
+    <!-- ********************************************************************************************** -->
+    <!-- @Configuration-->
+    <!-- ********************************************************************************************** -->
+    <logger name="org.springframework.context.annotation.ConfigurationClassPostProcessor"
+            level="trace" additivity="false">
+        <appender-ref ref="javaconfig"/>
+    </logger>
+
+    <!-- ********************************************************************************************** -->
+    <!-- @PostConstruct, @PreDestroy  -->
+    <!-- ********************************************************************************************** -->
+    <logger name="org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor"
+            level="trace" additivity="false">
+        <appender-ref ref="javaconfig"/>
+    </logger>
+
+    <!-- ********************************************************************************************** -->
+    <!-- @EnableWebMvc -->
+    <!-- ********************************************************************************************** -->
+    <logger name="org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration"
+            level="trace" additivity="false">
+        <appender-ref ref="javaconfig"/>
+    </logger>
+
+    <!-- ********************************************************************************************** -->
+    <!-- @RunWith(SpringJUnit4ClassRunner) -->
+    <!-- ********************************************************************************************** -->
+    <logger name="org.springframework.test.context.junit4.SpringJUnit4ClassRunner"
+            level="trace" additivity="false">
+        <appender-ref ref="javaconfig"/>
+    </logger>
+
+    <!-- ********************************************************************************************** -->
+    <!-- @PersistenceContext, @PersistenceUnit -->
+    <!-- ********************************************************************************************** -->
+    <logger name="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"
+            level="trace" additivity="false">
+        <appender-ref ref="javaconfig"/>
+    </logger>
+
+    <!-- ********************************************************************************************** -->
+    <!-- @Qualifier -->
+    <!-- ********************************************************************************************** -->
+    <logger name="org.springframework.beans.factory.annotation.QualifierAnnotationAutowireCandidateResolver"
+            level="trace" additivity="false">
+        <appender-ref ref="javaconfig"/>
+    </logger>
+
+    <!-- ********************************************************************************************** -->
+    <!-- @Required -->
+    <!-- ********************************************************************************************** -->
+    <logger name="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"
+            level="trace" additivity="false">
+        <appender-ref ref="javaconfig"/>
+    </logger>
+
+    <!-- ********************************************************************************************** -->
+    <!-- @XmlRootElement, @XmlType -->
+    <!-- ********************************************************************************************** -->
+    <logger name="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"
+            level="trace" additivity="false">
+        <appender-ref ref="javaconfig"/>
+    </logger>
+
+    <!-- ********************************************************************************************** -->
+    <!-- @EnableTransactionManagement -->
+    <!-- ********************************************************************************************** -->
+    <logger name="org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration"
+            level="trace" additivity="false">
+        <appender-ref ref="javaconfig"/>
+    </logger>
+
+    <!-- ********************************************************************************************** -->
+    <!-- @EnableTransactionManagement -->
+    <!-- *** Does NOT seem to log any detail *** -->
+    <!-- ********************************************************************************************** -->
+    <!--<logger name="org.springframework.transaction.annotation.AbstractTransactionManagementConfiguration"-->
+            <!--level="trace" additivity="false">-->
+        <!--<appender-ref ref="javaconfig"/>-->
+    <!--</logger>-->
+
+    <!-- ********************************************************************************************** -->
+    <!-- @ComponentScan, @PropertySource, @Import, @ImportResource, @Bean? -->
+    <!-- ********************************************************************************************** -->
+    <logger name="org.springframework.context.annotation.ConfigurationClassParser"
+            level="trace" additivity="false">
+        <appender-ref ref="javaconfig"/>
+    </logger>
+
+    <!-- ********************************************************************************************** -->
+    <!-- javax.inject @Qualifier, @Value (also via AutowiredAnnotationBeanPostProcessor)  -->
+    <!-- *** Does NOT seem to log any detail *** -->
+    <!-- ********************************************************************************************** -->
+    <!--<logger name="org.springframework.beans.factory.annotation.QualifierAnnotationAutowireCandidateResolver"-->
+            <!--level="trace" additivity="false">-->
+        <!--<appender-ref ref="javaconfig"/>-->
+    <!--</logger>-->
+
+    <!-- ********************************************************************************************** -->
+    <!-- @ContextConfiguration, @ActiveProfiles -->
+    <!-- ********************************************************************************************** -->
+    <logger name="org.springframework.test.context.ContextLoaderUtils"
+            level="trace" additivity="false">
+        <appender-ref ref="javaconfig"/>
+    </logger>
+
+
+    <!-- ********************************************************************************************** -->
+    <!-- @Modifying, @Query, @QueryHints -->
+    <!-- ********************************************************************************************** -->
+    <!--<logger name="JpaQueryMethod"-->
+    <!--level="trace" additivity="false">-->
+    <!--<appender-ref ref="javaconfig"/>-->
+    <!--</logger>-->
+    <!-- ********************************************************************************************** -->
+    <!-- &lt;flex:message-broker/&gt;, RemotingDestinationExporterBeanDefinitionFactory, RemotingDestinationExporter -->
+    <!-- ********************************************************************************************** -->
+    <!--<logger name="RemotingAnnotationPostProcessor"-->
+    <!--level="trace" additivity="false">-->
+    <!--<appender-ref ref="javaconfig"/>-->
+    <!--</logger>-->
+
+
+    <!-- ********************************************************************************************** -->
+    <!--  -->
+    <!-- ********************************************************************************************** -->
+    <!--    <logger name=""
+                level="trace" additivity="false">
+            <appender-ref ref="javaconfig"/>
+        </logger>
+    -->
 
     <root level="warn">
         <appender-ref ref="console"/>
+        <appender-ref ref="javaconfig"/>
     </root>
 </configuration>

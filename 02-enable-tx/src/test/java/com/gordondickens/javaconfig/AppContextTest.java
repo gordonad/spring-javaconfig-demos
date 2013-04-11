@@ -13,7 +13,8 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.startsWith;
 
 /**
- * @author Gordon Dickens (dickeg01)
+ * @author Gordon Dickens
+ * @see org.springframework.test.context.ContextLoaderUtils
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppConfig.class)
