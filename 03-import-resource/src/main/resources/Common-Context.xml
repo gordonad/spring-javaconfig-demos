@@ -4,7 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
          http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-   
     <bean id="Product"
-          class="com.gordondickens.javaconfig.beans.Product"/>
+          class="com.gordondickens.javaconfig.beans.Product">
+        <property name="productName" value="glibitty-goo"/>
+    </bean>
 </beans>

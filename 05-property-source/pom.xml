@@ -11,5 +11,77 @@
 
     <artifactId>05-property-source</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjtools</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>aspectj-maven-plugin</artifactId>
+                <version>${maven-aspectj-plugin.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjrt</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjtools</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>test-compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <detail>false</detail>
+                    <outxml>false</outxml>
+                    <verbose>false</verbose>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                    <complianceLevel>1.6</complianceLevel>
+                    <preserveAllLocals>true</preserveAllLocals>
+                    <showWeaveInfo>false</showWeaveInfo>
+                    <referenceInfo>false</referenceInfo>
+                    <!-- XLint must be set to ignore or it will fail on unnecessary classes -->
+                    <Xlint>ignore</Xlint>
+                    <outputDirectory>${project.build.testOutputDirectory}</outputDirectory>
+                    <sources>
+                        <source>
+                            <basedir>src/main/java</basedir>
+                            <includes>
+                                <include>**/*Aspect.java</include>
+                            </includes>
+                        </source>
+                    </sources>
+                    <weaveDependencies>
+                        <weaveDependency>
+                            <groupId>org.springframework</groupId>
+                            <artifactId>spring-core</artifactId>
+                        </weaveDependency>
+                    </weaveDependencies>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

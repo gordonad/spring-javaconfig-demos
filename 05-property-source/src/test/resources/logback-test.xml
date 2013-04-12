@@ -145,6 +145,10 @@
             level="trace" additivity="false">
         <appender-ref ref="javaconfig"/>
     </logger>
+    <logger name="org.springframework.core.env.SystemEnvironmentPropertySource"
+            level="trace" additivity="false">
+        <appender-ref ref="javaconfig"/>
+    </logger>
 
     <!-- ********************************************************************************************** -->
     <!-- @ImportResource -->

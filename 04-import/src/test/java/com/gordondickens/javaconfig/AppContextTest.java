@@ -33,5 +33,6 @@ public class AppContextTest {
         assertThat(customer, notNullValue());
         assertThat(account, notNullValue());
         assertThat(product, notNullValue());
+        assertThat(product.getProductName(), notNullValue());
     }
 }

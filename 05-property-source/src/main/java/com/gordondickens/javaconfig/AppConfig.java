@@ -5,10 +5,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 
 import javax.annotation.PostConstruct;
@@ -27,6 +26,7 @@ import javax.annotation.PostConstruct;
  */
 @Configuration
 @ComponentScan
+@PropertySource("classpath:/application.properties")
 public class AppConfig {
     private static final Logger logger = LoggerFactory.getLogger(AppConfig.class);
     
@@ -35,15 +35,15 @@ public class AppConfig {
 
     @Autowired
     Environment environment;
-            
+
+    //NOTE: Product will be instantiated after properties are loaded so that the value from environment can be injected.
     
     @Bean
-    public Product product() {
+    public Product product(@Value("#{ environment['product.name'] }") String prodName) {
         Product product = new Product();
-        product.setProductName("swizzles");
+        product.setProductName(prodName);
         return product;
     }
-    
     
     @PostConstruct
     public void logBeans() {

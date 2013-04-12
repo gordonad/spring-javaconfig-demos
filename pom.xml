@@ -1341,12 +1341,6 @@
                         <!-- Show the test errors on console -->
                         <useFile>false</useFile>
                         <printSummary>false</printSummary>
-                        <includes>
-                            <include>**/*Tests.java</include>
-                        </includes>
-                        <excludes>
-                            <exclude>**/Abstract*.java</exclude>
-                        </excludes>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -1406,12 +1400,14 @@
                                             <!--<exclude>commons-lang</exclude>-->
                                             <!--<exclude>commons-digester</exclude>-->
                                             <exclude>commons-logging</exclude>
-                                            <exclude>aspectj:aspectj*</exclude>
-                                            <exclude>hsqldb:hsqldb</exclude>
-                                            <exclude>log4j:log4j</exclude>
+                                            <exclude>aspectj</exclude>
+                                            <exclude>hsqldb</exclude>
+                                            <exclude>log4j</exclude>
                                             <exclude>org.slf4j:1.5*</exclude>
+                                            <exclude>org.slf4j:1.6*</exclude>
                                             <exclude>org.springframework:2.*</exclude>
                                             <exclude>org.springframework:3.0.*</exclude>
+                                            <exclude>org.springframework:3.1.*</exclude>
                                         </excludes>
                                     </bannedDependencies>
                                     <requireMavenVersion>
@@ -1471,25 +1467,25 @@
                             <version>${aspectj.version}</version>
                         </dependency>
                     </dependencies>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>compile</goal>
-                                <goal>test-compile</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <outxml>true</outxml>
-                        <aspectLibraries>
-                            <aspectLibrary>
-                                <groupId>org.springframework</groupId>
-                                <artifactId>spring-aspects</artifactId>
-                            </aspectLibrary>
-                        </aspectLibraries>
-                        <source>${jdk.version}</source>
-                        <target>${jdk.version}</target>
-                    </configuration>
+                    <!--<executions>-->
+                    <!--<execution>-->
+                    <!--<goals>-->
+                    <!--<goal>compile</goal>-->
+                    <!--<goal>test-compile</goal>-->
+                    <!--</goals>-->
+                    <!--</execution>-->
+                    <!--</executions>-->
+                    <!--<configuration>-->
+                    <!--<outxml>true</outxml>-->
+                    <!--<aspectLibraries>-->
+                    <!--<aspectLibrary>-->
+                    <!--<groupId>org.springframework</groupId>-->
+                    <!--<artifactId>spring-aspects</artifactId>-->
+                    <!--</aspectLibrary>-->
+                    <!--</aspectLibraries>-->
+                    <!--<source>${jdk.version}</source>-->
+                    <!--<target>${jdk.version}</target>-->
+                    <!--</configuration>-->
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>

@@ -145,7 +145,15 @@
             level="trace" additivity="false">
         <appender-ref ref="javaconfig"/>
     </logger>
-
+    <!--<logger name="org.springframework.context.annotation.AutoProxyRegistrar"-->
+            <!--level="trace" additivity="false">-->
+        <!--<appender-ref ref="javaconfig"/>-->
+    <!--</logger>-->
+    <!--<logger name="org.springframework.context.annotation.AspectJAutoProxyRegistrar"-->
+            <!--level="trace" additivity="false">-->
+        <!--<appender-ref ref="javaconfig"/>-->
+    <!--</logger>-->
+    
     <!-- ********************************************************************************************** -->
     <!-- @ImportResource -->
     <!-- ********************************************************************************************** -->

@@ -1,14 +1,13 @@
 package com.gordondickens.javaconfig;
 
-import com.gordondickens.javaconfig.beans.Product;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.core.env.Environment;
 
 import javax.annotation.PostConstruct;
@@ -26,7 +25,8 @@ import javax.annotation.PostConstruct;
  * @see 
  */
 @Configuration
-@ComponentScan
+@ComponentScan("com.gordondickens.javaconfig.beans")
+@Import(ServiceConfig.class)
 public class AppConfig {
     private static final Logger logger = LoggerFactory.getLogger(AppConfig.class);
     
@@ -35,16 +35,7 @@ public class AppConfig {
 
     @Autowired
     Environment environment;
-            
-    
-    @Bean
-    public Product product() {
-        Product product = new Product();
-        product.setProductName("swizzles");
-        return product;
-    }
-    
-    
+
     @PostConstruct
     public void logBeans() {
         logger.debug(StringUtils.repeat('*',78));
