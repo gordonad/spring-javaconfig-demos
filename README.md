@@ -11,6 +11,14 @@ General Features
 * Tests are in _src/test/java/com/gordondickens/javaconfig/AppContextText.java_
 * Logback with SLF4J for logging, see _src/test/resources/logback-test.xml_ for logging configuration
 
+Configuration Notes
+-------------------
+* @Configuration classes must be non-final
+* @Configuration classes must be non-local (may not be declared within a method)
+* @Configuration classes must have a default/no-arg constructor
+* Cannot use @Autowired constructor parameters
+* Nested configuration classes must be static
+
 
 01-Component-Scan
 -----------------
@@ -40,7 +48,8 @@ General Features
 
 06-Nested-Configuration
 -----------------------
-* TODO - To be implemented
+* Demonstrates Nested _@Configuration_ within an existing _@Configuration_ class
+* NOTE: Nested _@Configuration_ classes MUST be _static_
 
 
 07-Application-Initializer

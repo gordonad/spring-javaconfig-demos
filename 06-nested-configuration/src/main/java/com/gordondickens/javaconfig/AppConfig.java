@@ -14,7 +14,6 @@ import org.springframework.core.env.Environment;
 import javax.annotation.PostConstruct;
 
 /**
- * 
  * @author Gordon Dickens
  * @see org.springframework.context.annotation.ClassPathBeanDefinitionScanner
  * @see org.springframework.beans.factory.support.DefaultListableBeanFactory
@@ -23,36 +22,39 @@ import javax.annotation.PostConstruct;
  * @see org.springframework.beans.factory.annotation.InjectionMetadata
  * @see org.springframework.beans.CachedIntrospectionResults
  * @see org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor
- * @see 
+ * @see
  */
 @Configuration
 @ComponentScan
 public class AppConfig {
     private static final Logger logger = LoggerFactory.getLogger(AppConfig.class);
-    
+
     @Autowired
     ApplicationContext applicationContext;
 
     @Autowired
     Environment environment;
-            
-    
-    @Bean
-    public Product product() {
-        Product product = new Product();
-        product.setProductName("swizzles");
-        return product;
-    }
-    
-    
+
+
     @PostConstruct
     public void logBeans() {
-        logger.debug(StringUtils.repeat('*',78));
+        logger.debug(StringUtils.repeat('*', 78));
         for (String bean : applicationContext.getBeanDefinitionNames()) {
             logger.debug("BEAN '{}'", bean);
         }
-        logger.debug(StringUtils.repeat('*',78));
-        logger.debug("ENV: '{}'",environment.toString());
-        logger.debug(StringUtils.repeat('*',78));
+        logger.debug(StringUtils.repeat('*', 78));
+        logger.debug("ENV: '{}'", environment.toString());
+        logger.debug(StringUtils.repeat('*', 78));
+    }
+
+
+    @Configuration
+    static class OtherConfig {
+        @Bean
+        public Product product() {
+            Product product = new Product();
+            product.setProductName("swizzles");
+            return product;
+        }
     }
 }
