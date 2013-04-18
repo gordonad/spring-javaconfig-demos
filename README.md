@@ -11,8 +11,9 @@ General Features
 * Tests are in _src/test/java/com/gordondickens/javaconfig/AppContextText.java_
 * Logback with SLF4J for logging, see _src/test/resources/logback-test.xml_ for logging configuration
 
-Configuration Notes
--------------------
+
+JavaConfig Notes
+----------------
 * @Configuration classes must be non-final
 * @Configuration classes must be non-local (may not be declared within a method)
 * @Configuration classes must have a default/no-arg constructor
@@ -54,7 +55,11 @@ Configuration Notes
 
 07-Application-Initializer
 --------------------------
-* TODO - To be implemented
+* Demonstrates using an Application Initializer to evaluate an environment parameter at runtime and choosing beans based on that descriminator
+* Demonstrates using the _@Profile_ annotation for configuration classes
+* Demonstrates using the _@ActiveProfiles_ test annotation for JUnit tests
+* Demonstrates how to set the profile and reload the context in the class _com.gordondickens.javaconfig.Main.java_ class
+* The Main class can be executed from the command line with _mvn exec:java_
 
 
 Lifecycle

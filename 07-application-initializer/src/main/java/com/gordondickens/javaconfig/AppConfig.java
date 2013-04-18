@@ -26,7 +26,7 @@ import javax.annotation.PostConstruct;
  * @see 
  */
 @Configuration
-@ComponentScan
+@ComponentScan("com.gordondickens.javaconfig.beans")
 public class AppConfig {
     private static final Logger logger = LoggerFactory.getLogger(AppConfig.class);
     

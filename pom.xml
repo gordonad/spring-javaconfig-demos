@@ -644,7 +644,6 @@
                 <groupId>org.apache.derby</groupId>
                 <artifactId>derby</artifactId>
                 <version>${derby.version}</version>
-                <scope>runtime</scope>
             </dependency>
             <dependency>
                 <groupId>javax.mail</groupId>
@@ -842,7 +841,6 @@
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
                 <version>${h2database.version}</version>
-                <scope>runtime</scope>
             </dependency>
             <dependency>
                 <groupId>org.jboss.logging</groupId>
